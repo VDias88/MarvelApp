@@ -25,6 +25,7 @@ body{
     display: grid;
     grid-template-columns: repeat(3,30%);
     justify-content: space-evenly;
+    overflow-x: hidden;
     overflow-y: scroll;
     grid-template-rows: max-content;
     width: 50vw;
@@ -32,31 +33,63 @@ body{
     margin-top: 2%;
 }
 .grid_item{
+    transition: .5s ease;
     filter: drop-shadow(0 0 0.3rem black);
     border-radius: 10px;
     margin: 10px;
     cursor: pointer;
-    background-color: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
-    background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
-
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+.grid_more{
+    transition: .5s ease;
+    filter: drop-shadow(0 0 0.3rem black);
+    background-color: rgba(245, 245, 245, 0.247);
+    justify-self: center;
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 225px;
+    height: 300px;
+}
+.grid_more:hover{
+    background-color: rgba(245, 245, 245, 0.514);
+}
+.grid_more div{
+    font-size: 2vw;
+    color: whitesmoke;
+    font-weight: bolder;
+}
 .grid_item:hover{
     filter: drop-shadow(0 0 0.75rem black);
 }
+.grid_item:hover .grid_title{
+    opacity: 1;
+}
 .grid_img{
-    border-radius: 13px;
     align-self: center;
     width: 225px;
     height: 300px;
 }
 
 .grid_title{
+    background-color: rgba(0, 0, 0, 0.616);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+    position: absolute;
     font-family: monospace;
     font-size: 20px;
     text-align: center;
+    transition: .5s ease;
+    width: 225px;
+    height: 300px;
 }
 ::-webkit-scrollbar {
     width: 12px;
@@ -77,4 +110,118 @@ body{
 }
 ::-webkit-scrollbar-thumb:window-inactive {
 	background: rgba(255,0,0,0.4); 
+}
+/*Modal page*/
+.modal_box{
+    background-color: #3f0d12;
+    background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
+    filter: drop-shadow(0 0 0.75rem black);
+    font-family: monospace;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: fixed;
+    width: 70vw;
+    height: 70vh;
+    background-color: red;
+}
+.modal_box img{
+    width: 20vw;
+    height: 25vw;
+}
+.modal_box .close{
+    font-weight: bolder;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    margin: 1vw 1vw 0 0;
+    position: absolute;
+    font-size: 30px;
+}
+.m_header{
+    text-align: center;
+    font-size: 1.3vw;
+    width: 100%;
+
+    flex-basis: 10%;
+    justify-self: center;
+}
+.m_body{
+    display: flex;
+    
+}
+.cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.r_t,.c_t{
+    font-size: 2vw;
+}
+.resume,.creators{
+    padding: 10px;
+    font-size: 1.2vw;
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+@media(max-width:1490px){
+    .grid{
+        width: 60vw;
+    }
+    
+}
+@media(max-width:1266px){
+    .m_header{
+        font-size: 3.5vw;
+    }
+    .modal_box img{
+        position: absolute;
+        
+        z-index: -1;
+        opacity: 0.3;
+        width: auto;
+        height: auto;
+        
+    }
+    .r_t,.c_t{
+        font-size: 3vw;
+    }
+    .resume,.creators{
+
+        font-size: 2vw;
+        
+    
+    }
+    .modal_box{
+        overflow: hidden;
+    }
+    .grid{
+        width: 70vw;
+    }
+}
+@media(max-width:1100px){
+    .grid{
+        width: 90vw;
+    }
+}
+@media(max-width:830px){
+    .grid{
+        grid-template-columns: repeat(2,50%);
+    }
+    .grid_more{
+        width: 40vw;
+        height: 300px; 
+    }
+    .grid_img,.grid_title{
+        width: 40vw;
+        
+    }
 }

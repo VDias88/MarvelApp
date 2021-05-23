@@ -4,9 +4,10 @@ import ComicGrid from './components/Comic_Grid'
 import  './components/style.css'
 
 ReactDOM.render(
-
-    <div className="grid">
-        <ComicGrid  />
-    </div>
+    <React.Fragment>
+            <ComicGrid />
+    </React.Fragment>
+    
 
 ,document.getElementById('root'))
+
